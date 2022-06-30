@@ -9,7 +9,6 @@ import { ConsiderationInterface } from "../../../contracts/interfaces/Considerat
 
 contract BasicOrderDive is BaseOrderTest {
     BasicOrderParameters basicOrderParameters;
-    ConsiderationInterface consideration;
 
     struct FuzzInputsCommon {
         address zone;
@@ -43,6 +42,7 @@ contract BasicOrderDive is BaseOrderTest {
 
         test721_1.mint(alice, inputs.tokenId);
 
+        // pull consideration contract from BaseConsiderationTest which deploys code from precompiled source
         // get counter for alice the offerer
         uint256 counter = consideration.getCounter(alice);
 
